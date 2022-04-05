@@ -1,6 +1,6 @@
 # JAJavaDeveloperTrack
 
-These are projects I completed from JetBrains Academy - Java Developer Tracks
+These are projects I completed from JetBrains Academy - Java Developer Track
 
 ## Projects Completed
 
