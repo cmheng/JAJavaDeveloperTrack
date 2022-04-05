@@ -2,18 +2,9 @@ package machine;
 
 import java.util.Scanner;
 
-enum InputState {
-	ACTION, BUY, ADD_WATER, ADD_MILK, ADD_BEANS, ADD_CUP
-}
-
-enum CoffeeType {
-	ESPRESSO, LATTE, CAPPUCCINO
-}
-
 public class CoffeeMachine {
 		
 	private static final int WATER_PER_ESPRESSO = 250;
-	private static final int MILK_PER_ESPRESSO = 0;
 	private static final int COFFEE_BEANS_PER_ESPRESSO = 16;
 	private static final int COST_PER_ESPRESSO = 4;
 
@@ -64,7 +55,7 @@ public class CoffeeMachine {
 						System.out.printf("$%d of money%n", moneyInMachine);
 						break;
 					case "exit":
-						System.exit(0);				
+						inputState = InputState.EXIT;
 				}
 				break;
 			
@@ -117,7 +108,6 @@ public class CoffeeMachine {
 		switch (coffeeType) {
 			case ESPRESSO:
 				water = WATER_PER_ESPRESSO;
-				milk = MILK_PER_ESPRESSO;
 				beans= COFFEE_BEANS_PER_ESPRESSO;
 				cost = COST_PER_ESPRESSO;
 				break;
@@ -163,8 +153,9 @@ public class CoffeeMachine {
 		Scanner scanner = new Scanner(System.in);		
 		
 		CoffeeMachine coffeeMachine = new CoffeeMachine();
-		
-		while (true) {	
+
+		boolean exit = false;
+		while (!exit) {
 			switch (coffeeMachine.inputState) {
 				case ACTION:
 					System.out.println("\nWrite action (buy, fill, take, remaining, exit):");
@@ -190,7 +181,18 @@ public class CoffeeMachine {
 					System.out.println("Write how many disposable cups of coffee you want to add:");
 					coffeeMachine.input(scanner.nextLine());
 					break;
+				case EXIT:
+					exit = true;
+					break;
 			}			
 		}
 	}
+}
+
+enum InputState {
+	ACTION, BUY, ADD_WATER, ADD_MILK, ADD_BEANS, ADD_CUP, EXIT
+}
+
+enum CoffeeType {
+	ESPRESSO, LATTE, CAPPUCCINO
 }
