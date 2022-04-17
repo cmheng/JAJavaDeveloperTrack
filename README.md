@@ -8,3 +8,4 @@ These are projects I completed from JetBrains Academy - Java Developer Track
 - Simple Chatty Bot (4 Apr 2022)
 - Simple Tic-Tac-Toe (4 Apr 2022)
 - Coffee Machine (5 Apr 2022)
+- Tic-Tac-Toe with AI (17 Apr 2022) 
